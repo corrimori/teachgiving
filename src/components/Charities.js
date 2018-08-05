@@ -16,4 +16,4 @@ class Charities extends Component {
   }
 }
 
-export default Charities
+export default Charities 

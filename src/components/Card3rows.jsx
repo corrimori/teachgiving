@@ -19,4 +19,4 @@ const Card3rows = () => (
   </Card.Group>
 )
 
-export default Card3rows
+export default Card3rows 

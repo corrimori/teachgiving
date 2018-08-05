@@ -1,10 +1,10 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
-import dog from './dog.jpg';
+import img from './dog.jpg';
 
 const CharityCard = () => (
   <Card>
-    <Image src={dog} />
+    <Image src={img} />
     <Card.Content>
       <Card.Header>San Francisco SPCA</Card.Header>
       <Card.Meta>95.47 Rating</Card.Meta>
