@@ -1,10 +1,17 @@
+.PledgeAmount-container {
+  background-color: lightblue;
+  text-align: left;
+  padding-left: 50px;
+  padding-top: 40px;
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
   background-color: green;
-  height: 50px;
+  height: 70px;
   padding: 20px;
   color: white;
 }
@@ -14,5 +21,11 @@
 }
 
 .App-intro {
+  padding-top: 20px;
   font-size: large;
+}
+
+.App-container {
+  padding-top: 5px;
+  padding: 50px;
 }
