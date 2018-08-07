@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import LandPage from './components/pages/LandPage'
+import CharityPage from './components/pages/CharityPage'
+// ******* ADD other import pages here **********
 
-import Charities from './components/Charities'
-import PledgeAmount from './components/PledgeAmount'
+import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Welcome</h1>
-          </header>
-          <p className="App-intro">
-            Choose a charity and start giving!
-          </p>
-          <div className="App-container">
-            <Charities />
-          </div>
-        </div>
-
-        <div className="PledgeAmount-container">
-          <PledgeAmount />
-        </div>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component = { LandPage } />
+          <Route path="/charities" exact component = { CharityPage } />
+        </Switch>
       </div>
     );
   }
 }
 
-export default App
+export default App;
+
+//
+// <Route path="/" exact component = { HomePage } />
+// <Route path="/kids" exact component = { KidsPage } />
+// <Route path="/charities" exact component = { CharityPage } />
+// <Route path="/results" exact component = { ResultsPage } />

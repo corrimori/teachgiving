@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {Component} from 'react'
+import { Route, Switch } from 'react-router-dom'
 import { Card, Icon, Image } from 'semantic-ui-react'
-import img from './dog.jpg';
-import img2 from './SFFoodBank.png'
-import img3 from './GGP.jpg'
+import CharityPage from './pages/CharityPage'
+
+import img from '../img/dog.jpg';
+import img2 from '../img/SFFoodBank.png'
+import img3 from '../img/GGP.jpg'
 
 const CharityCard = () => (
 
