@@ -40,6 +40,7 @@ const CharityCard = () => (
     </Card>
 
   </Card.Group>
+
 )
 
 export default CharityCard
