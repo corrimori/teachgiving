@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button, Icon, Input } from 'semantic-ui-react'
+import { Form, Button, Input } from 'semantic-ui-react'
 
 const PledgeAmount = () => {
 
