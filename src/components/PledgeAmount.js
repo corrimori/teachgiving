@@ -19,7 +19,14 @@ import { Form, Button, Input } from 'semantic-ui-react'
 //   this.setState({ pledgeAmt: this.state.pledgeAmt })
 // }
 
-const PledgeAmount = () => {
+const PledgeAmount = props => {
+
+  if (props.allPledges.length === 0 ) {
+    return (<div>loading...</div>)
+  } else {
+  console.log('In PledgeAmount component = props', props)
+  console.log('props.allPledges.pledgeAmt', props.allPledges.pledgeAmt);
+
 
   return (
     <div>
@@ -31,13 +38,16 @@ const PledgeAmount = () => {
             <option value='kid3'>Kid-3</option>
           </Form.Field>
         </Form.Group>
+
         <Form.Group grouped>
           <label>Who are you giving to today?</label>
           <Form.Field label='SPCA' control='input' type='radio' name='htmlRadios' />
           <Form.Field label='SF Food Bank' control='input' type='radio' name='htmlRadios' />
           <Form.Field label='Golden Gate Park' control='input' type='radio' name='htmlRadios' />
         </Form.Group>
-        <Form.Field label='Amount' control='input'></Form.Field>
+
+        <input onClick={this.props.sendAmount(props.pledges.pledgeAmt)}
+        type="submit" value="amountSend" className="btn btn-primary" />
         <Form.Field
           id='form-button-control-public'
           control={Button}
@@ -48,6 +58,7 @@ const PledgeAmount = () => {
       </Form>
     </div>
   )
+}
 }
 
 export default PledgeAmount

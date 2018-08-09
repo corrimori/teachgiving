@@ -8,11 +8,13 @@ const apiUrl = 'http://localhost:3003'
 class CharityPage extends Component {
   state = {
     allCharities: [],
+    allPledges: []
   }
 
 // connect to backend
   componentDidMount = async () => {
     await this.getAllCharities()
+    // await this.getAllPledges()
   }
 
 // loading messages from the server
@@ -22,6 +24,14 @@ class CharityPage extends Component {
     let charitiesJson = await allCharities.json()
     this.setState({allCharities: charitiesJson})
   }
+
+  // loading messages from the server
+  //   getAllPledges = async () => {
+  // // fetch charityJson
+  //     const allPledges = await fetch( apiUrl + '/pledges' )
+  //     let pledgesJson = await allPledges.json()
+  //     this.setState({allPledges: pledgesJson})
+  //   }
 
 
   render() {
@@ -45,7 +55,8 @@ class CharityPage extends Component {
         </div>
 
         <div className="PledgeAmount-container">
-          <PledgeAmount />
+          <PledgeAmount
+            allPledges={this.state.allPledges}/>
         </div>
       </div>
     );
