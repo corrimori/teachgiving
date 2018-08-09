@@ -1,6 +1,24 @@
 import React from 'react'
 import { Form, Button, Input } from 'semantic-ui-react'
 
+// sendAmount = async() => {
+//   const pledgeAmt = { props.pledges.pledgeAmt }
+//   fetch(apiUrl + '/pledges', {
+//     method: 'POST',
+//     headers: {
+//       'Accept': 'application/json'
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       kid_id,
+//       charity_id,
+//       pledgeAmt,
+//       numOfWeeks
+//     })
+//   })
+//   this.setState({ pledgeAmt: this.state.pledgeAmt })
+// }
+
 const PledgeAmount = () => {
 
   return (
@@ -19,9 +37,7 @@ const PledgeAmount = () => {
           <Form.Field label='SF Food Bank' control='input' type='radio' name='htmlRadios' />
           <Form.Field label='Golden Gate Park' control='input' type='radio' name='htmlRadios' />
         </Form.Group>
-        <Form.Field label='Amount' control='input'>
-
-        </Form.Field>
+        <Form.Field label='Amount' control='input'></Form.Field>
         <Form.Field
           id='form-button-control-public'
           control={Button}
