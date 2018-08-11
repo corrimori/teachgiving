@@ -210,10 +210,10 @@ const LandPage = () => (
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Container text>
         <Header as='h3' style={{ fontSize: '2em' }}>
-          Encourage generosity and Teach Giving
+          Encourage Generosity and Teach Giving
         </Header>
         <p style={{ fontSize: '1.33em' }}>
-          Giving is more satisfying that receiving... One of the biggest barriers to giving is that we don't have extra money in our budget. Nano-donations allow every kids to support something they care about. A little bit can frequently add up to a lot with dedication and consistency.
+          Giving is more satisfying that receiving... Teaching kids how good it feels to give at an early age blooms with possiblity of potential exponental growth of good for the future, their future. One of the biggest barriers to giving is that we don't have extra money in our budget. Nano-donations allow every kids to support something they care about. A little bit can frequently add up to a lot with dedication and consistency.
         </p>
         <Button as='a' size='large'>
           Donate Today

@@ -13,7 +13,6 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route path="/" exact component = { LandPage } />
-          <Route path="/LandPage" exact component = { LandPage } />
           <Route path="/charities" exact component = { CharityPage } />
           <Route path="/dev" exact component = { DevPage } />
         </Switch>

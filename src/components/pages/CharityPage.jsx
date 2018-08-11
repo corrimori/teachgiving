@@ -16,7 +16,6 @@ class CharityPage extends Component {
   state = {
     allCharities: [],
     allPledges: [],
-    currentPledge: {}
   }
 
   // function to update the state currentPledges
@@ -24,10 +23,9 @@ class CharityPage extends Component {
     console.log('currentPledge');
   }
 
-// connect to backend
+// connect to api
   componentDidMount = async () => {
     await this.getAllCharities()
-    // await this.getAllPledges()
   }
 
 // loading messages from the server
@@ -61,7 +59,7 @@ class CharityPage extends Component {
     return (
 
       <div>
-
+      {/* NAVIGATION at top */}
       <Segment
         inverted
         textAlign='center'
@@ -75,7 +73,7 @@ class CharityPage extends Component {
           secondary={!fixed}
           size='large'
         >
-          <Container inverted style={{margin: 0}}>
+          <Container style={{margin: 0}}>
             <Menu.Item as='a'>Home</Menu.Item>
             <Menu.Item as='a'>About</Menu.Item>
             <Menu.Item as='a' active>Why Give?</Menu.Item>

@@ -4,7 +4,6 @@ import CharityCard from './CharityCard'
 
 const CharityList = props => {
   console.log('In Charity List = props', props)
-  console.log("printing allCharities", props.allCharities)
   return props.allCharities.map(charity =>
     <CharityCard
       key={charity.id}
