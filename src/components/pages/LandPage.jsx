@@ -23,7 +23,7 @@ import {
 however it's not the best practice.
 Use CSS or styled components for such things.
  */
- 
+
 const LandPageHeading = ({ mobile }) => (
   <Container text>
     <Header
@@ -58,10 +58,6 @@ LandPageHeading.propTypes = {
   mobile: PropTypes.bool,
 }
 
-/* Heads up!
- * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
- * It can be more complicated, but you can create really flexible markup.
- */
 
 class DesktopContainer extends Component {
   state = {}

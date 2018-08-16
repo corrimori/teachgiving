@@ -10,7 +10,6 @@ import {
   Segment
 } from 'semantic-ui-react'
 
-const baseUrl = 'http://localhost:3003'
 
 class CharityPage extends Component {
   state = {

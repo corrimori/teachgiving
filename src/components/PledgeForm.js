@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Input } from 'semantic-ui-react'
-import baseUrl from './pages/CharityPage'
+import { baseUrl } from './pages/CharityPage'
 
 class PledgeForm extends Component {
 
@@ -11,47 +11,28 @@ class PledgeForm extends Component {
     numOfWeeks: 0,
   }
 
-  // componentDidMount= async () =>{
-  //   await this.getPledgeInfo();
-  // }
-
-//this is the fetch to collect ALL from PLEDGE route
-  // getPledgeInfo = async () => {
-  //   console.log('pledgeInfo befor fetch ************', pledgeInfo)
-  //   const pledgeInfoJSON = await fetch('http://localhost:3003/pledges')
-  //   let pledgeInfo = await pledgeInfoJSON.json()
-  //   console.log(pledgeInfo,"<<<<pledgeInfo after fetch");
-  //   this.setState({
-  //     pledgeInfo,
-  //   })
-  // }
-
   // onSubmit of pledge FORM
   onSubmitPledge = (event) => {
     event.preventDefault();
     console.log('this.state==========>>', this.state);
 
     let pledgeInfoPost = {
-      // kidName: this.state.kidName,
-      // charityName: this.state.charityName,
+      kidName: this.state.kids_id,
+      charityName: this.state.charityName,
       pledgeAmount: this.state.pledgeAmount,
       numberOfWeeks: this.state.numOfWeeks
     }
     // write a fetch request to post pledgeInfo to state
-    // console.log('pledgeInfo=================>>', pledgeInfo);
+    console.log('pledgeInfoPost=================>>', pledgeInfoPost);
     this.sendPledgeInfo();
   }
 
+// pledgeAmount is value
   handleChange = (event) => {
-    this.setState({pledgeAmount: event.target.value })
+    this.setState({value: event.target.value })
     console.log('event.target.value>>', event.target.value)
     console.log('this.state.value>>>', this.state.value);
   }
-
-  // from react docs ********************
- //  handleChange(event) {
- //   this.setState({value: event.target.value});
- // }
 
 
   // onChange handler function definition here
@@ -61,7 +42,9 @@ class PledgeForm extends Component {
   sendPledgeInfo = async () => {
     const { pledgeAmount, numberOfWeeks } = this.state;
     // console.log('pledgeInfo ************', pledgeInfo)
-    fetch( 'http://localhost:3003/pledges', {
+    console.log('baseUrl', {baseUrl})
+    // let pledgeCall = {baseUrl} + '/pledges'
+    fetch( {baseUrl} + '/pledges', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -86,6 +69,7 @@ class PledgeForm extends Component {
   render() {
     console.log('In PledgeForm component', this.props)
     console.log('the state', this.state)
+    console.log('baseURL+++++++++++++++++', baseUrl);
 
 
     return (
@@ -103,19 +87,32 @@ class PledgeForm extends Component {
 
           <Form.Group grouped>
             <label>Who are you giving to today?</label>
-            <Form.Field label='SPCA' control='input' type='radio' name='htmlRadios' />
-            <Form.Field label='SF Food Bank' control='input' type='radio' name='htmlRadios' />
+            <Form.Field label='SPCA' control='input' type='radio' name='htmlRadios'
+            onChange={
+              (event) => {
+                console.log(event.target)
+                this.setState( { charityName: "SPCA"} )
+              }
+            } />
+            <Form.Field label='SF Food Bank' control='input' type='radio' name='htmlRadios'
+            onChange={
+              (event) => {
+                console.log(event.target)
+                this.setState( { charityName: "SF Food Bank"} )
+              }
+            }  />
             <Form.Field label='Golden Gate Park' control='input' type='radio' name='htmlRadios'
             onChange={
               (event) => {
                 console.log(event.target)
-                this.setState( { charityName: event.target.value} )
+                this.setState( { charityName: "Golden Gate Park"} )
               }
             } />
           </Form.Group>
 
           <Form.Group widths='equal'>
-            <Form.Field control={Input} label='Pledge Amount' placeholder='Amount' value={this.state.pledgeAmount}
+            <Form.Field control={Input} label='Pledge Amount' placeholder='Amount' placeholder='amount'
+            // value={this.state.pledgeAmount}
             onChange={
               (event) =>
                 this.setState( { pledgeAmount: event.target.value} )
