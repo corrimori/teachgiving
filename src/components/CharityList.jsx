@@ -9,6 +9,7 @@ const CharityList = props => {
       key={charity.id}
       charityName={charity.name}
       charityDescription={charity.description}
+      onClick={() => console.log("clicked charity")}
     />
   )
 }

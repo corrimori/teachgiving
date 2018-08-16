@@ -18,10 +18,12 @@ import {
 } from 'semantic-ui-react'
 
 
-/* eslint-disable react/no-multi-comp */
-/* Heads up! LandPageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
- * such things.
+/* eslint-disable react/no-multi-comp
+/* Heads up! LandPageHeading uses inline styling,
+however it's not the best practice.
+Use CSS or styled components for such things.
  */
+ 
 const LandPageHeading = ({ mobile }) => (
   <Container text>
     <Header

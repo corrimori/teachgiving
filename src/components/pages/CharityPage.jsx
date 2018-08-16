@@ -16,11 +16,12 @@ class CharityPage extends Component {
   state = {
     allCharities: [],
     allPledges: [],
+    selectedCharityId: ""
   }
 
-  // function to update the state currentPledges
-  updateCurrentPledge = () => {
-    console.log('currentPledge');
+  updateSelectedCharity = (selectedCharityId) => {
+    console.log("selected charity updated to: ", selectedCharityId)
+    this.setState({"selectedCharityId": selectedCharityId})
   }
 
 // connect to api
@@ -90,13 +91,14 @@ class CharityPage extends Component {
           <div style = { wrap }>
             <CharityList
               allCharities={this.state.allCharities}
+              updateSelectedCharity={this.updateSelectedCharity}
             />
           </div>
         </div>
 
         <div className="PledgeAmount-container">
           <PledgeForm
-            updateCurrentPledge={this.updateCurrentPledge}
+            selectedCharityId={this.state.selectedCharityId}
             allPledges={this.state.allPledges}/>
         </div>
       </div>

@@ -1,31 +1,45 @@
 import React, { Component } from 'react'
 import { Form, Button, Input } from 'semantic-ui-react'
-import baseUrl from '../App.js'
+import baseUrl from './pages/CharityPage'
 
 class PledgeForm extends Component {
 
   state = {
     value: '',
-    kidName: '',
-    charityName: '',
+    kids_id: '',
     pledgeAmount: 0,
-    numberOfWeeks: 0
+    numOfWeeks: 0,
   }
+
+  // componentDidMount= async () =>{
+  //   await this.getPledgeInfo();
+  // }
+
+//this is the fetch to collect ALL from PLEDGE route
+  // getPledgeInfo = async () => {
+  //   console.log('pledgeInfo befor fetch ************', pledgeInfo)
+  //   const pledgeInfoJSON = await fetch('http://localhost:3003/pledges')
+  //   let pledgeInfo = await pledgeInfoJSON.json()
+  //   console.log(pledgeInfo,"<<<<pledgeInfo after fetch");
+  //   this.setState({
+  //     pledgeInfo,
+  //   })
+  // }
 
   // onSubmit of pledge FORM
   onSubmitPledge = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     console.log('this.state==========>>', this.state);
 
-    let pledgeInfo = {
+    let pledgeInfoPost = {
       // kidName: this.state.kidName,
       // charityName: this.state.charityName,
       pledgeAmount: this.state.pledgeAmount,
-      numberOfWeeks: this.state.numberOfWeeks
+      numberOfWeeks: this.state.numOfWeeks
     }
     // write a fetch request to post pledgeInfo to state
-    console.log('pledgeInfo=================>>', pledgeInfo);
-    this.sendPledgeInfo(pledgeInfo)
+    // console.log('pledgeInfo=================>>', pledgeInfo);
+    this.sendPledgeInfo();
   }
 
   handleChange = (event) => {
@@ -34,45 +48,54 @@ class PledgeForm extends Component {
     console.log('this.state.value>>>', this.state.value);
   }
 
+  // from react docs ********************
+ //  handleChange(event) {
+ //   this.setState({value: event.target.value});
+ // }
+
+
   // onChange handler function definition here
   // the purpose of this function is to write
   // the pledge amount aka the input to the state
 
-  sendPledgeInfo = async(pledgeInfo) => {
-    console.log('pledgeInfo ************', pledgeInfo)
-    // fetch(baseUrl + '/pledges', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     // kid_id: kidName,
-    //     // charities_id: charity,
-    //     // pledgeAmount: pledgeAmount,
-    //     // numOfWeeks: numberOfWeeks
-    //   })
-    // })
-    // .then(response => {
-    //   if (!response.ok){
-    //     throw new Error('request failed')
-    //   }
-    //   return response.json()
-    // })
+  sendPledgeInfo = async () => {
+    const { pledgeAmount, numberOfWeeks } = this.state;
+    // console.log('pledgeInfo ************', pledgeInfo)
+    fetch( 'http://localhost:3003/pledges', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        kids_id: 1,
+        charities_id: 2,
+        pledgeAmount,
+        numberOfWeeks
+      })
+    })
+    .then(response => {
+      if (!response.ok){
+        throw new Error('request failed')
+      }
+      return response.json()
+    })
   }
 
-  // {id: 1, kids_id: 2, charities_id: 3, pledgeAmount: 0.25, numOfWeeks: 2},
 
   render() {
     console.log('In PledgeForm component', this.props)
     console.log('the state', this.state)
 
+
     return (
       <div>
         <Form onSubmit={this.onSubmitPledge}>
           <Form.Group widths='equal'>
-            <Form.Field label='Who is giving?' control='select'>
-              <option value='kid1'>Kid-1</option>
+            <Form.Field
+              label='Who is giving?'
+              control='select'>
+              <option value="kid1">Kid-1</option>
               <option value='kid2'>Kid-2</option>
               <option value='kid3'>Kid-3</option>
             </Form.Field>
@@ -92,7 +115,7 @@ class PledgeForm extends Component {
           </Form.Group>
 
           <Form.Group widths='equal'>
-            <Form.Field control={Input} label='Pledge Amount' placeholder='Amount' pledgeAmount={this.state.pledgeAmount}
+            <Form.Field control={Input} label='Pledge Amount' placeholder='Amount' value={this.state.pledgeAmount}
             onChange={
               (event) =>
                 this.setState( { pledgeAmount: event.target.value} )
@@ -120,3 +143,11 @@ class PledgeForm extends Component {
 
 
 export default PledgeForm
+
+
+
+
+
+
+
+// {id: 1, kids_id: 2, charities_id: 3, pledgeAmount: 0.25, numOfWeeks: 2},
