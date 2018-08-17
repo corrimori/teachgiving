@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CharityList from '../CharityList.jsx'
 import PledgeForm from '../PledgeForm'
+import { Link } from 'react-router-dom';
 import '../../App.css';
 import {
   Container,
@@ -9,12 +10,12 @@ import {
   Responsive,
   Segment
 } from 'semantic-ui-react'
+import { getAllCharities } from '../../services/api'
 
 
 class CharityPage extends Component {
   state = {
     allCharities: [],
-    allPledges: [],
     selectedCharityId: ""
   }
 
@@ -25,23 +26,8 @@ class CharityPage extends Component {
 
 // connect to api
   componentDidMount = async () => {
-    await this.getAllCharities()
-  }
-
-// loading messages from the server
-  getAllCharities = async () => {
-// fetch charityJson
-    const allCharities = await fetch( baseUrl + '/charities' )
-    let charitiesJson = await allCharities.json()
+    let charitiesJson = await getAllCharities()
     this.setState({allCharities: charitiesJson})
-  }
-
-  // loading messages from the server
-  getAllPledges = async () => {
-  // fetch charityJson
-    const allPledges = await fetch( baseUrl + '/pledges' )
-    let pledgesJson = await allPledges.json()
-    this.setState({allPledges: pledgesJson})
   }
 
   render() {
@@ -74,10 +60,10 @@ class CharityPage extends Component {
           size='large'
         >
           <Container style={{margin: 0}}>
-            <Menu.Item as='a'>Home</Menu.Item>
-            <Menu.Item as='a'>About</Menu.Item>
-            <Menu.Item as='a' active>Why Give?</Menu.Item>
-            <Menu.Item as='a'>Donate Today</Menu.Item>
+            <Menu.Item as={Link} to='/'>Home</Menu.Item>
+            <Menu.Item as='a'>Why Give?</Menu.Item>
+            <Menu.Item as='a' active>Charities</Menu.Item>
+            <Menu.Item as='a'>Donate Dashboard</Menu.Item>
           </Container>
         </Menu>
       </Segment>
@@ -97,8 +83,7 @@ class CharityPage extends Component {
 
         <div className="PledgeAmount-container">
           <PledgeForm
-            selectedCharityId={this.state.selectedCharityId}
-            allPledges={this.state.allPledges}/>
+            selectedCharityId={this.state.selectedCharityId} />
         </div>
       </div>
     );

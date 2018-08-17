@@ -9,9 +9,13 @@ const CharityList = props => {
       key={charity.id}
       charityName={charity.name}
       charityDescription={charity.description}
-      onClick={() => console.log("clicked charity")}
+      charityImage={charity.url}
+      onClick={() => console.log("######### clicked charity")}
     />
   )
 }
 
 export default CharityList
+
+// load image from public folder
+// http://localhost:3000/images/kitten.jpg

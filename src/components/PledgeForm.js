@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { Form, Button, Input } from 'semantic-ui-react'
-import { baseUrl } from './pages/CharityPage'
+import { sendPledgeInfo } from '../services/api'
 
 class PledgeForm extends Component {
 
   state = {
     value: '',
     kids_id: '',
+    charityName: '',
     pledgeAmount: 0,
-    numOfWeeks: 0,
+    numOfWeeks: 0
   }
 
   // onSubmit of pledge FORM
@@ -16,15 +17,15 @@ class PledgeForm extends Component {
     event.preventDefault();
     console.log('this.state==========>>', this.state);
 
-    let pledgeInfoPost = {
-      kidName: this.state.kids_id,
-      charityName: this.state.charityName,
+    let pledgeInfo = {
+      kids_id: 1, //this.state.kids_id,
+      charities_id: 2, //this.state.charityName,
       pledgeAmount: this.state.pledgeAmount,
       numberOfWeeks: this.state.numOfWeeks
     }
     // write a fetch request to post pledgeInfo to state
-    console.log('pledgeInfoPost=================>>', pledgeInfoPost);
-    this.sendPledgeInfo();
+    console.log('pledgeInfo=================>>', pledgeInfo);
+    sendPledgeInfo(pledgeInfo);
   }
 
 // pledgeAmount is value
@@ -34,44 +35,27 @@ class PledgeForm extends Component {
     console.log('this.state.value>>>', this.state.value);
   }
 
+selectKid = (event) => {
+    const kid_id = kid_id.target.value
+    this.setState({kid_id})
+  }
+
 
   // onChange handler function definition here
   // the purpose of this function is to write
   // the pledge amount aka the input to the state
 
-  sendPledgeInfo = async () => {
-    const { pledgeAmount, numberOfWeeks } = this.state;
-    // console.log('pledgeInfo ************', pledgeInfo)
-    console.log('baseUrl', {baseUrl})
-    // let pledgeCall = {baseUrl} + '/pledges'
-    fetch( {baseUrl} + '/pledges', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        kids_id: 1,
-        charities_id: 2,
-        pledgeAmount,
-        numberOfWeeks
-      })
-    })
-    .then(response => {
-      if (!response.ok){
-        throw new Error('request failed')
-      }
-      return response.json()
-    })
-  }
+  // <Form.Field
+  //   label='Who is giving?'
+  //   control='select'
+  //   onChange=selectKid()>
+  //   <option value='1'>Child-1</option>
+  //   <option value='2'>Child-2</option>
+  //   <option value='3'>Child-3</option>
+  // </Form.Field>
 
 
   render() {
-    console.log('In PledgeForm component', this.props)
-    console.log('the state', this.state)
-    console.log('baseURL+++++++++++++++++', baseUrl);
-
-
     return (
       <div>
         <Form onSubmit={this.onSubmitPledge}>
@@ -79,9 +63,9 @@ class PledgeForm extends Component {
             <Form.Field
               label='Who is giving?'
               control='select'>
-              <option value="kid1">Kid-1</option>
-              <option value='kid2'>Kid-2</option>
-              <option value='kid3'>Kid-3</option>
+              <option value='1'>Child-1</option>
+              <option value='2'>Child-2</option>
+              <option value='3'>Child-3</option>
             </Form.Field>
           </Form.Group>
 
@@ -91,7 +75,7 @@ class PledgeForm extends Component {
             onChange={
               (event) => {
                 console.log(event.target)
-                this.setState( { charityName: "SPCA"} )
+                this.setState( {charityName: "SPCA"} )
               }
             } />
             <Form.Field label='SF Food Bank' control='input' type='radio' name='htmlRadios'
@@ -111,17 +95,18 @@ class PledgeForm extends Component {
           </Form.Group>
 
           <Form.Group widths='equal'>
-            <Form.Field control={Input} label='Pledge Amount' placeholder='Amount' placeholder='amount'
-            // value={this.state.pledgeAmount}
+
+            <Form.Field control={Input} label='Pledge Amount' placeholder='amount'
             onChange={
               (event) =>
                 this.setState( { pledgeAmount: event.target.value} )
-              } /> // add an onChange handler here
+            } /> // add an onChange handler here
+
             <Form.Field control={Input} label='Number of Weeks you want to give' placeholder='weeks'
             onChange={
               (event) =>
-                this.setState( { numberOfWeeks: event.target.value} )
-              } />
+                this.setState( { numOfWeeks: event.target.value} )
+            } />
           </Form.Group>
 
           <Form.Field
