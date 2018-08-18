@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import Background from '../../img/girl-309067889.jpg'
 import { Link } from 'react-router-dom';
 import {
   Button,
@@ -83,7 +82,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url(${Background})` }}
+            style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url('images/girl-309067889.jpg')` }}
             vertical
           >
 

@@ -9,7 +9,7 @@ const CharityList = props => {
       key={charity.id}
       charityName={charity.name}
       charityDescription={charity.description}
-      charityImage={charity.url}
+      charityImage={charity.image_path}
       onClick={() => console.log("######### clicked charity")}
     />
   )
