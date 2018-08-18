@@ -5,12 +5,9 @@ import { Link } from 'react-router-dom';
 import {
   Button,
   Container,
-  Divider,
   Grid,
   Header,
   Icon,
-  Image,
-  List,
   Menu,
   Responsive,
   Segment,
@@ -48,7 +45,7 @@ const LandPageHeading = ({ mobile }) => (
         marginTop: '0.5em',
       }}
     />
-    <Link to={Link} to='/charities'>
+    <Link to='/charities'>
       <Button color='orange' size='huge' >
         Get Started
         <Icon name='right arrow' />
@@ -216,7 +213,7 @@ const LandPage = () => (
         <p style={{ fontSize: '1.33em' }}>
           Giving is more satisfying that receiving... Teaching kids how good it feels to give at an early age blooms with possiblity of potential exponental growth of good for the future, their future. One of the biggest barriers to giving is that we don't have extra money in our budget. Nano-donations allow every kids to support something they care about. A little bit can frequently add up to a lot with dedication and consistency.
         </p>
-        <Button as={Link} to='/charities' size='large'>
+        <Button as={ Link } to='/charities' size='large'>
           Donate Today
         </Button>
       </Container>

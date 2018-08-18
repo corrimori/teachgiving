@@ -35,10 +35,10 @@ class PledgeForm extends Component {
     console.log('this.state.value>>>', this.state.value);
   }
 
-selectKid = (event) => {
-    const kid_id = kid_id.target.value
-    this.setState({kid_id})
-  }
+  // selectKid = (event) => {
+  //   const kid_id = kid_id.target.value
+  //   this.setState({kid_id})
+  // }
 
 
   // onChange handler function definition here
@@ -100,7 +100,7 @@ selectKid = (event) => {
             onChange={
               (event) =>
                 this.setState( { pledgeAmount: event.target.value} )
-            } /> // add an onChange handler here
+            } />
 
             <Form.Field control={Input} label='Number of Weeks you want to give' placeholder='weeks'
             onChange={

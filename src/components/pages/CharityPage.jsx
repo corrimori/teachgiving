@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 import '../../App.css';
 import {
   Container,
-  Header,
   Menu,
-  Responsive,
   Segment
 } from 'semantic-ui-react'
 import { getAllCharities } from '../../services/api'
