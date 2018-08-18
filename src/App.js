@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LandPage from './components/pages/LandPage'
 import CharityPage from './components/pages/CharityPage'
-import DevPage from './components/pages/DevPage'
 // ******* ADD other import pages here **********
 
 import './App.css';
@@ -14,7 +13,6 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component = { LandPage } />
           <Route path="/charities" exact component = { CharityPage } />
-          <Route path="/dev" exact component = { DevPage } />
         </Switch>
       </div>
     );

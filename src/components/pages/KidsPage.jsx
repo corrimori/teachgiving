@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import Background from '../../img/girl-309067889.jpg'
 import {
   Button,
   Container,
