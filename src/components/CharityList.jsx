@@ -4,14 +4,18 @@ import CharityCard from './CharityCard'
 
 const CharityList = props => {
   console.log('In Charity List = props', props)
-  console.log("printing allCharities", props.allCharities)
   return props.allCharities.map(charity =>
     <CharityCard
       key={charity.id}
       charityName={charity.name}
       charityDescription={charity.description}
+      charityImage={charity.url}
+      onClick={() => console.log("######### clicked charity")}
     />
   )
 }
 
 export default CharityList
+
+// load image from public folder
+// http://localhost:3000/images/kitten.jpg

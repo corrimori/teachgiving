@@ -28,4 +28,13 @@
 .App-container {
   padding-top: 5px;
   padding: 50px;
+  margin: 50;
+  display: 'inline';
+}
+
+.App-card-list {
+  display: inline-block;
+  width: 100%;
+  padding: 50px;
+  margin: 50;
 }

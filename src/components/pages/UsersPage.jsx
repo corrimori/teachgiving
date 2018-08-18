@@ -7,9 +7,9 @@ const UsersPage = (props) => {
 }
 
   // document.addEventListener("DOMContentLoaded", (event) => {
-  //   console.log("In charities component!")
+  //   console.log("In user component!")
   //
-  //   fetch('/charities', {
+  //   fetch('/users', {
   //     method: 'GET'
   //   })
   //
