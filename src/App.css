@@ -38,3 +38,32 @@
   padding: 50px;
   margin: 50;
 }
+
+.Charity {
+  background-color: #F4D03F;
+}
+
+.wrap {
+  display: inline-block;
+  padding-top: 10px;
+  margin: 0;
+  display: 'flex';
+  width: 90%;
+  background: cyan;
+  white-space:normal;
+  overflow-x: scroll;
+}
+
+
+/* display:inline-block;
+width:100%;
+float:right;
+margin:0;
+min-height: 75vh;
+white-space:normal;
+overflow-x: scroll;
+margin-top:-70px;
+flexDirection: 'row';
+flexWrap: 'wrap';
+justifyContent: 'space-between';
+alignContent: 'center'; */

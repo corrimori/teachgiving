@@ -79,7 +79,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url('images/girl-309067889.jpg')` }}
+            style={{ minHeight: 600, padding: '1em 0em', backgroundImage: `url('images/heroHeart3.jpg')` }}
             vertical
           >
 

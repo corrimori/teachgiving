@@ -31,18 +31,9 @@ class CharityPage extends Component {
   render() {
     const { fixed } = this.state
 
-    const wrap = {
-      margin: 65,
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'space-between',
-      alignContent: 'center',
-    }
-
     return (
 
-      <div>
+      <div className="Charity">
       {/* NAVIGATION at top */}
       <Segment
         inverted
@@ -61,17 +52,17 @@ class CharityPage extends Component {
             <Menu.Item as={Link} to='/'>Home</Menu.Item>
             <Menu.Item as='a'>Why Give?</Menu.Item>
             <Menu.Item as='a' active>Charities</Menu.Item>
-            <Menu.Item as='a'>Donate Dashboard</Menu.Item>
+            <Menu.Item as={Link} to='/dashboard'>Donate Dashboard</Menu.Item>
           </Container>
         </Menu>
       </Segment>
 
-        <div className="App">
-          <h2 style={{marginTop: '20px'}}>
+        <div>
+          <h1 style={{marginTop: '40px', color:'gray'}}>
             Choose a charity and start giving!
-          </h2>
+          </h1>
 
-          <div style = { wrap }>
+          <div className="wrap">
             <CharityList
               allCharities={this.state.allCharities}
               updateSelectedCharity={this.updateSelectedCharity}
