@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CharityList from '../CharityList.jsx'
 import PledgeForm from '../PledgeForm'
-import { Link } from 'react-router-dom';
 import '../../App.css';
 import {
   Container,
