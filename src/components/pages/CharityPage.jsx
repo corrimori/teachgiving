@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CharityList from '../CharityList.jsx'
 import PledgeForm from '../PledgeForm'
-import { Link } from 'react-router-dom';
 import '../../App.css';
 import {
   Container,
@@ -61,7 +61,7 @@ class CharityPage extends Component {
             <Menu.Item as={Link} to='/'>Home</Menu.Item>
             <Menu.Item as='a'>Why Give?</Menu.Item>
             <Menu.Item as='a' active>Charities</Menu.Item>
-            <Menu.Item as='a'>Donate Dashboard</Menu.Item>
+            <Menu.Item as={Link} to='/dashboard'>Donate Dashboard</Menu.Item>
           </Container>
         </Menu>
       </Segment>
