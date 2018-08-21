@@ -58,7 +58,7 @@ class CharityPage extends Component {
       </Segment>
 
         <div>
-          <h1 style={{marginTop: '40px', color:'gray'}}>
+          <h1 style={{marginTop: '40px', color:'white'}}>
             Choose a charity and start giving!
           </h1>
 

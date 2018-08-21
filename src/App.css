@@ -40,21 +40,21 @@
 }
 
 .Charity {
-  background-color: #F4D03F;
+  background-color: #8ac852;
 }
 
 .wrap {
-  display: inline-block;
   padding-top: 10px;
   margin: 0;
-  display: 'flex';
   width: 90%;
+  display: 'flex';
+  align-items: flex-start;
+  align-content: center;
+  flex-flow: row wrap;
+  justify-content: space-around;
   background: cyan;
   white-space:normal;
   overflow-x: scroll;
-}
-body {
-  background: red;
 }
 
 /* display:inline-block;

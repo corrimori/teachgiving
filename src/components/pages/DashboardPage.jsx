@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Route, Link } from 'react-router-dom'
+// import { chart } from 'chart'
 // import { Card, Icon, Image } from 'semantic-ui-react'
 import {
   Button,
@@ -52,7 +53,8 @@ render () {
         </Segment>
 
         <div>
-        <h3 style={{marginTop: '40px'}}>You have reached the Dashboard Page</h3>
+
+          <h2 style={{marginTop: '40px'}}>Welcome Corrine!</h2>
         </div>
 
       </div>
