@@ -51,7 +51,7 @@ class CharityPage extends Component {
           <Container style={{margin: 0}}>
             <Menu.Item as={Link} to='/'>Home</Menu.Item>
             <Menu.Item as='a'>Why Give?</Menu.Item>
-            <Menu.Item as='a' active>Charities</Menu.Item>
+            <Menu.Item as={Link} to='/charities' active>Charities</Menu.Item>
             <Menu.Item as={Link} to='/dashboard'>Donate Dashboard</Menu.Item>
           </Container>
         </Menu>

@@ -16,6 +16,3 @@ const CharityList = props => {
 }
 
 export default CharityList
-
-// load image from public folder
-// http://localhost:3000/images/kitten.jpg

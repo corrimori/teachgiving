@@ -146,7 +146,7 @@ class MobileContainer extends Component {
             <Menu.Item as='a'>About</Menu.Item>
             <Menu.Item as='a'>Why Give?</Menu.Item>
             <Menu.Item as='a'>Donate Today</Menu.Item>
-            <Menu.Item as='a'>Log in</Menu.Item>
+            <Menu.Item as={ Link } to='/LoginPage'>Log in</Menu.Item>
             <Menu.Item as='a'>Sign Up</Menu.Item>
           </Sidebar>
 

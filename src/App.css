@@ -53,7 +53,9 @@
   white-space:normal;
   overflow-x: scroll;
 }
-
+body {
+  background: red;
+}
 
 /* display:inline-block;
 width:100%;
