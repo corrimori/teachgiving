@@ -56,16 +56,20 @@ class PledgeForm extends Component {
 
 
   render() {
+    const formWrap = {
+      margin: '5em'
+    }
+
     return (
-      <div>
+      <div style={ formWrap }>
         <Form onSubmit={this.onSubmitPledge}>
           <Form.Group widths='equal'>
             <Form.Field
               label='Who is giving?'
               control='select'>
-              <option value='1'>Child-1</option>
-              <option value='2'>Child-2</option>
-              <option value='3'>Child-3</option>
+              <option value='1'>Felix</option>
+              <option value='2'>Lauren</option>
+              <option value='3'>Lucy</option>
             </Form.Field>
           </Form.Group>
 
@@ -113,7 +117,7 @@ class PledgeForm extends Component {
             id='form-button-control-public'
             control={Button}
             content='Give Now'
-            label='fill in later'
+            label=''
             color='green'
           />
         </Form>

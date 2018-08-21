@@ -10,7 +10,6 @@ import {
 } from 'semantic-ui-react'
 import { getAllCharities } from '../../services/api'
 
-
 class CharityPage extends Component {
   state = {
     allCharities: [],
@@ -30,6 +29,16 @@ class CharityPage extends Component {
 
   render() {
     const { fixed } = this.state
+
+    const wrap = {
+      paddingTop: '1px',
+      margin: '5em',
+      display: 'flex',
+      alignItems: 'flex-start',
+      alignContent: 'center',
+      flexFlow: 'row wrap',
+      justifyContent: 'space-around',
+    }
 
     return (
 
@@ -62,7 +71,7 @@ class CharityPage extends Component {
             Choose a charity and start giving!
           </h1>
 
-          <div className="wrap">
+          <div style={ wrap }>
             <CharityList
               allCharities={this.state.allCharities}
               updateSelectedCharity={this.updateSelectedCharity}
