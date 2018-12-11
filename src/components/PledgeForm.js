@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Button, Input } from 'semantic-ui-react'
 import { sendPledgeInfo } from '../services/api'
+import { Link } from 'react-router-dom';
+
 
 class PledgeForm extends Component {
 
