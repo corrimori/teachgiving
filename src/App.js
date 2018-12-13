@@ -5,6 +5,7 @@ import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import CharityPage from './components/pages/CharityPage';
 import DashboardPage from './components/pages/DashboardPage';
+import KidsPage from './components/pages/KidsPage';
 // ******* ADD other import pages here **********
 
 import './App.css';
@@ -19,30 +20,23 @@ class App extends Component {
     this.setState({ users: usersJSON });
   };
 
-  // take this.state.messages (mapping thru) and
-  // return array of ids and pass as parameter to method
-  toggleStarred = async message => {
-    console.log('in toggle Starred...');
-    let payload = {
-      messageIds: [message.id],
-      command: 'star',
-      star: !message.starred,
-    };
-
-    const response = await fetch(`${BaseURL}/api/messages`, {
-      method: 'PATCH',
+  createNewUser = async userData => {
+    console.log('in createNewUser...');
+    console.log('user Data ***********', userData);
+    fetch(`${BaseURL}/users`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        name: userData.username,
+        hashpass: userData.hashpass,
+      }),
+    }).then(() => {
+      console.log('new user added ...');
+      // this.fetchKidsForUser(userData.id);
     });
-
-    message.starred = !message.starred;
-    const messages = [...this.state.messages];
-
-    // const message = await response.json();
-    this.setState({ messages });
   };
 
   render() {
@@ -50,10 +44,21 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route path="/" exact component={LandPage} />
-          <Route path="/login" exact component={LoginPage} />
-          <Route path="/signup" exact component={SignupPage} />
+          <Route
+            path="/login"
+            render={routeProps => (
+              <LoginPage {...routeProps} createNewUser={this.createNewUser} />
+            )}
+          />
+          <Route
+            path="/signup"
+            render={routeProps => (
+              <SignupPage {...routeProps} createNewUser={this.createNewUser} />
+            )}
+          />
           <Route path="/charities" exact component={CharityPage} />
           <Route path="/dashboard" exact component={DashboardPage} />
+          <Route path="/kids" exact component={KidsPage} />
         </Switch>
       </div>
     );
@@ -61,3 +66,6 @@ class App extends Component {
 }
 
 export default App;
+
+// <Route path="/signup" exact component={SignupPage} />
+// <Route path="/login" exact component={LoginPage} />

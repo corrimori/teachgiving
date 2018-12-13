@@ -233,6 +233,9 @@ const LandPage = () => (
         <Button as={Link} to="/charities" size="large">
           Donate Today
         </Button>
+        <Button as={Link} to="/kids" size="large">
+          kids page
+        </Button>
       </Container>
     </Segment>
     <Segment style={{ padding: '0em' }} vertical>

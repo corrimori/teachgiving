@@ -4,7 +4,9 @@ import CharityList from '../CharityList.js';
 import PledgeForm from '../PledgeForm';
 import '../../App.css';
 import { Container, Menu, Segment } from 'semantic-ui-react';
-import { getAllCharities } from '../../services/api';
+// import { getAllCharities } from '../../services/api';
+
+let BaseURL = 'http://localhost:3032';
 
 class CharityPage extends Component {
   state = {
@@ -17,10 +19,12 @@ class CharityPage extends Component {
     this.setState({ selectedCharityId: selectedCharityId });
   };
 
-  // connect to api
+  // connect to api - Get all charities
   componentDidMount = async () => {
-    let charitiesJson = await getAllCharities();
+    const response = await fetch(`${BaseURL}/charities`);
+    let charitiesJson = await response.json();
     this.setState({ allCharities: charitiesJson });
+    console.log('all charities loaded...', this.state.allCharities);
   };
 
   render() {
@@ -58,7 +62,9 @@ class CharityPage extends Component {
               <Menu.Item as={Link} to="/">
                 Home
               </Menu.Item>
-              <Menu.Item as="a">Why Give?</Menu.Item>
+              <Menu.Item as={Link} to="/kids">
+                Kids
+              </Menu.Item>
               <Menu.Item as={Link} to="/charities" active>
                 Charities
               </Menu.Item>
@@ -70,7 +76,7 @@ class CharityPage extends Component {
         </Segment>
 
         <div>
-          <h1 style={{ marginTop: '40px', color: 'white' }}>
+          <h1 style={{ marginTop: '40px', color: 'black' }}>
             Choose a charity and start giving!
           </h1>
 
