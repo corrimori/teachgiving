@@ -4,25 +4,14 @@ import '../../login.css';
 
 const SignupPage = () => {
   return (
-    <div class="login-page">
-      <div class="form">
-        <form class="register-form">
+    <div className="login-page">
+      <div className="form">
+        <form className="register-form">
           <input type="text" placeholder="name" />
           <input type="password" placeholder="password" />
-          <input type="text" placeholder="email address" />
           <button>create</button>
-          <p class="message">
-            Already registered? <a href="#">Sign In</a>
-          </p>
-        </form>
-        <form class="login-form">
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-          <Link to="/charities">
-            <button type="button">login</button>
-          </Link>
-          <p class="message">
-            Not registered? <a href="#">Create an account</a>
+          <p className="message">
+            Already registered? <Link to="/login">Sign In</Link>
           </p>
         </form>
       </div>
@@ -30,7 +19,7 @@ const SignupPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;
 
 /*
 <script>

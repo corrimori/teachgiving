@@ -2,33 +2,54 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../login.css';
 
+// class CharityPage extends Component {
+
+// state = {
+//   name: '',
+//   hashpass: '',
+// };
+
+const onChange = e => this.setState({ [e.target.name]: [e.target.value] });
+
+const onSubmit = e => {
+  e.preventDefault();
+
+  console.log('login form submitted...', this.state);
+
+  // const post = {
+  //   name: this.state.username,
+  //   hashpass: this.state.hasspass,
+  // };
+};
+
 const LoginPage = () => {
+  console.log('this.state>>>>>', this.state);
   return (
-    <div class="login-page">
-      <div class="form">
-        <form class="register-form">
-          <input type="text" placeholder="name" />
-          <input type="password" placeholder="password" />
-          <input type="text" placeholder="email address" />
-          <button>create</button>
-          <p class="message">
-            Already registered? <a href="#">Sign In</a>
-          </p>
-        </form>
-        <form class="login-form">
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-          <Link to="/charities">
-            <button type="button">login</button>
-          </Link>
-          <p class="message">
-            Not registered? <a href="#">Create an account</a>
+    <div className="login-page">
+      <div className="form">
+        <form className="login-form" onSubmit={this.onSubmit}>
+          <input type="text" placeholder="name" onChange={this.onChange} />
+          <input
+            type="password"
+            placeholder="password"
+            onChange={this.onChange}
+          />
+          <button type="submit">login</button>
+          <p className="message">
+            Not registered? <Link to="/signup">Create an account</Link>
           </p>
         </form>
       </div>
     </div>
   );
 };
+
+// <Link to='/charities'>
+//   <Button color='orange' size='huge' >
+//     Get Started
+//     <Icon name='right arrow' />
+//   </Button>
+// </Link>
 
 export default LoginPage;
 
