@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../../App.css';
 import PropTypes from 'prop-types';
 import { Item, Card, Container, Image, Menu, Segment } from 'semantic-ui-react';
+import Kid from '../Kid';
+
 // import { baseURL } from '../../App';
 
 let baseURL = 'http://localhost:3032';
@@ -94,25 +96,14 @@ class KidsPage extends Component {
 
         <div className="Kids">
           <h1 style={{ marginTop: '40px' }}>Who is giving today?</h1>
-
           <div className="Kids-names large-row-spacer" align="center">
-            <Link to="/charities">
-              <Image src="images/avatar/panda.png" size="small" circular />
-              <h2>Felix</h2>
-            </Link>
-            <Link to="/charities">
-              <Image src="images/avatar/wolf.png" size="small" circular />
-              <h2>Lauren</h2>
-            </Link>
-            <Link to="/charities">
-              <Image
-                align="center"
-                src="images/avatar/koala.png"
-                size="small"
-                circular
+            {this.state.kidsOfUser.map(kid => (
+              <Kid
+                key={kid.kidName}
+                avatarImage={kid.avatarImage}
+                kidName={kid.kidName}
               />
-              <h2>Lucy</h2>
-            </Link>
+            ))}
             <p className="message">
               Add or Edit a child?{' '}
               <Link to="/charities">Create a new child</Link>
@@ -125,3 +116,23 @@ class KidsPage extends Component {
 }
 
 export default KidsPage;
+
+// key={{indexOf(kid)}}
+
+// <Link to="/charities">
+//   <Image src="images/avatar/panda.png" size="small" circular />
+//   <h2>Felix</h2>
+// </Link>
+// <Link to="/charities">
+//   <Image src="images/avatar/wolf.png" size="small" circular />
+//   <h2>Lauren</h2>
+// </Link>
+// <Link to="/charities">
+//   <Image
+//     align="center"
+//     src="images/avatar/koala.png"
+//     size="small"
+//     circular
+//   />
+//   <h2>Lucy</h2>
+// </Link>

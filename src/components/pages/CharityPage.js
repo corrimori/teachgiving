@@ -6,7 +6,7 @@ import '../../App.css';
 import { Container, Menu, Segment, Image, Header } from 'semantic-ui-react';
 // import { getAllCharities } from '../../services/api';
 
-let BaseURL = 'http://localhost:3032';
+let baseURL = 'http://localhost:3032';
 
 class CharityPage extends Component {
   state = {
@@ -21,7 +21,7 @@ class CharityPage extends Component {
 
   // connect to api - Get all charities
   componentDidMount = async () => {
-    const response = await fetch(`${BaseURL}/charities`);
+    const response = await fetch(`${baseURL}/charities`);
     let charitiesJson = await response.json();
     this.setState({ allCharities: charitiesJson });
     console.log('all charities loaded...', this.state.allCharities);
@@ -75,6 +75,7 @@ class CharityPage extends Component {
             </Container>
           </Menu>
         </Segment>
+
         <Header as="h2">
           <Image circular src="images/avatar/koala.png" /> Lucy
         </Header>
