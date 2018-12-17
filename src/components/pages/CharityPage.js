@@ -28,6 +28,7 @@ class CharityPage extends Component {
   };
 
   render() {
+    console.log('props - Charity Page ------>>', this.props);
     const { fixed } = this.state;
 
     const wrap = {
@@ -43,7 +44,6 @@ class CharityPage extends Component {
     return (
       <div className="Charity">
         {/* NAVIGATION at top */}
-
         <Segment
           inverted
           textAlign="center"
@@ -77,7 +77,7 @@ class CharityPage extends Component {
         </Segment>
 
         <Header as="h2">
-          <Image circular src="images/avatar/koala.png" /> Lucy
+          <Image circular src="images/avatar/koala.png" />Lucy
         </Header>
         <div>
           <h1 style={{ marginTop: '40px', color: 'black' }}>
@@ -91,7 +91,6 @@ class CharityPage extends Component {
             />
           </div>
         </div>
-
         <div className="PledgeAmount-container">
           <PledgeForm selectedCharityId={this.state.selectedCharityId} />
         </div>

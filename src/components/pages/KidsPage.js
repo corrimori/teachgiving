@@ -20,26 +20,19 @@ class KidsPage extends Component {
   // get user id from Login
 
   // connect to api - Get all kids for User
+  // let id = 2;
+  // const response = await fetch(`${baseURL}/:id/kids`);
+
   componentDidMount = async () => {
-    console.log('in kids page...');
-    // let id = 2;
-    // const response = await fetch(`${baseURL}/:id/kids`);
-    const response = await fetch(`${baseURL}/users/2/kids`);
-    let kidsJson = await response.json();
-    console.log('kidsJson>>>', kidsJson);
-    this.setState({ allKids: kidsJson });
-    console.log('kids loaded... ');
-    console.log('allKids>>>>>', this.state.allKids);
-    // put kids into an array
-    let kidsOfUser = [];
-    this.state.allKids.map(kid => {
-      console.log('kid>>', kid);
-      console.log('kidName>>', kid.kidName);
-      kidsOfUser.push(kid.kidName);
-    });
-    console.log('kidsOfUser--------->>', kidsOfUser);
-    this.setState({ kidsOfUser });
-    console.log('kidsOfUser>>', this.state.kidsOfUser);
+    try {
+      console.log('in kids page...');
+      const response = await fetch(`${baseURL}/users/2/kids`);
+      const kidsJson = await response.json();
+      console.log('kidsJson>>>', kidsJson);
+      this.setState({ allKids: kidsJson });
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
   render() {
@@ -54,10 +47,6 @@ class KidsPage extends Component {
       flexFlow: 'row wrap',
       justifyContent: 'space-around',
     };
-
-    const ImageExampleCircular = () => (
-      <Image src="/foxImg.png" size="medium" circular />
-    );
 
     return (
       <div>
@@ -97,11 +86,12 @@ class KidsPage extends Component {
         <div className="Kids">
           <h1 style={{ marginTop: '40px' }}>Who is giving today?</h1>
           <div className="Kids-names large-row-spacer" align="center">
-            {this.state.kidsOfUser.map(kid => (
+            {this.state.allKids.map(kid => (
               <Kid
-                key={kid.kidName}
+                key={kid.id}
+                kid={kid}
                 avatarImage={kid.avatarImage}
-                kidName={kid.kidName}
+                name={kid.name}
               />
             ))}
             <p className="message">

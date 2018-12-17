@@ -1,12 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-/*
 .body {
- background-color: #76b852;
-  background-color: red;
+  background-color: #76b852;
+  /* background-color: red; */
 }
 
-
+/*
 .login-background {
   background: #76b852;
 }
