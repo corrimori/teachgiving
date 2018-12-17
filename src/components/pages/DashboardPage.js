@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { chart } from 'chart'
 // import { Card, Icon, Image } from 'semantic-ui-react'
 import {
   Button,
   Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
   Image,
   List,
   Menu,
   Responsive,
   Segment,
-  Sidebar,
-  Visibility,
 } from 'semantic-ui-react';
 
 class DashboardPage extends Component {

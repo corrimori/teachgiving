@@ -157,7 +157,7 @@ class MobileContainer extends Component {
             <Menu.Item as={Link} to="/LoginPage">
               Log in
             </Menu.Item>
-            <Menu.Item as={Link} to="/SignupPage">
+            <Menu.Item as={Link} to="/SignUpPage">
               Sign Up
             </Menu.Item>
           </Sidebar>

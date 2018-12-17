@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CharityList from '../CharityList.js';
 import PledgeForm from '../PledgeForm';
 import '../../App.css';
-import { Container, Menu, Segment } from 'semantic-ui-react';
+import { Container, Menu, Segment, Image, Header } from 'semantic-ui-react';
 // import { getAllCharities } from '../../services/api';
 
 let BaseURL = 'http://localhost:3032';
@@ -43,6 +43,7 @@ class CharityPage extends Component {
     return (
       <div className="Charity">
         {/* NAVIGATION at top */}
+
         <Segment
           inverted
           textAlign="center"
@@ -74,7 +75,9 @@ class CharityPage extends Component {
             </Container>
           </Menu>
         </Segment>
-
+        <Header as="h2">
+          <Image circular src="images/avatar/koala.png" /> Lucy
+        </Header>
         <div>
           <h1 style={{ marginTop: '40px', color: 'black' }}>
             Choose a charity and start giving!

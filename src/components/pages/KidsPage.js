@@ -2,23 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 import PropTypes from 'prop-types';
-import {
-  Item,
-  Button,
-  Card,
-  Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-} from 'semantic-ui-react';
+import { Item, Card, Container, Image, Menu, Segment } from 'semantic-ui-react';
+
+// get all kids from user
 
 class KidsPage extends Component {
   state = {
@@ -46,7 +32,7 @@ class KidsPage extends Component {
     };
 
     const ImageExampleCircular = () => (
-      <Image src="../../public/images/avatar/fox.png" size="medium" circular />
+      <Image src="/foxImg.png" size="medium" circular />
     );
 
     return (
@@ -85,49 +71,30 @@ class KidsPage extends Component {
         </Segment>
 
         <div className="Kids">
-          <h2 style={{ marginTop: '40px' }}>Who is giving today?</h2>
+          <h1 style={{ marginTop: '40px' }}>Who is giving today?</h1>
 
-          <div>
-            <Item.Group relaxed="very">
-              <Item>
-                <Item.Image
-                  size="small"
-                  src="../../../public/images/avatar/fox.png"
-                />
-
-                <Item.Content verticalAlign="middle">
-                  <Item.Header as="a">kid 1</Item.Header>
-                </Item.Content>
-              </Item>
-
-              <Item>
-                <Item.Image size="small" src="/images/wireframe/image.png" />
-
-                <Item.Content verticalAlign="middle">
-                  <Item.Header as="a">kid 2</Item.Header>
-                </Item.Content>
-              </Item>
-
-              <Item>
-                <Item.Image size="small" src="/images/wireframe/image.png" />
-
-                <Item.Content verticalAlign="middle">
-                  <Item.Header as="a">kid 3</Item.Header>
-                </Item.Content>
-              </Item>
-            </Item.Group>
-
-            {/* <AvatarList allAvatars={this.state.allAvatars} />
-
-            <Image
-              src="../../public/images/avatar/fox.png"
-              size="medium"
-              circular
-            />
-
-            src="../../public/images/avatar/fox.png"
-
-            */}
+          <div className="Kids-names large-row-spacer" align="center">
+            <Link to="/charities">
+              <Image src="images/avatar/panda.png" size="small" circular />
+              <h2>Felix</h2>
+            </Link>
+            <Link to="/charities">
+              <Image src="images/avatar/wolf.png" size="small" circular />
+              <h2>Lauren</h2>
+            </Link>
+            <Link to="/charities">
+              <Image
+                align="center"
+                src="images/avatar/koala.png"
+                size="small"
+                circular
+              />
+              <h2>Lucy</h2>
+            </Link>
+            <p className="message">
+              Add or Edit a child?{' '}
+              <Link to="/charities">Create a new child</Link>
+            </p>
           </div>
         </div>
       </div>

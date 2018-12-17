@@ -5,7 +5,7 @@ import '../../login.css';
 class LoginPage extends Component {
   state = {
     username: '',
-    hashpass: '',
+    hashPass: '',
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -15,13 +15,13 @@ class LoginPage extends Component {
     console.log('login form submitted...');
     console.log('this.state######', this.state);
 
-    // const post = {
-    //   username: this.state.username,
-    //   hashpass: this.state.hashpass,
-    // };
-    const post = this.state;
-    console.log('this.props>>>>>>>', this.props);
-    this.props.createNewUser(this.state);
+    const post = {
+      name: this.state.username,
+      password: this.state.hashPass,
+    };
+    // const post = this.state;
+    // console.log('this.props>>>>>>>', this.props);
+    this.props.login(post);
   };
 
   render() {
@@ -39,7 +39,7 @@ class LoginPage extends Component {
               type="password"
               placeholder="password"
               onChange={this.onChange}
-              name="hashpass"
+              name="hashPass"
             />
             <button type="submit">login</button>
             <p className="message">

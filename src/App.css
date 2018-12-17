@@ -45,7 +45,18 @@
   background-color: #8ac852;
 }
 
+.Kids-names {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
 
+.large-row-spacer {
+  margin-bottom: 20px;
+}
 
 /* display:inline-block;
 width:100%;
@@ -58,4 +69,6 @@ margin-top:-70px;
 flexDirection: 'row';
 flexWrap: 'wrap';
 justifyContent: 'space-between';
-alignContent: 'center'; */
+alignContent: 'center';
+background-color: yellow;
+*/

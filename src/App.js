@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LandPage from './components/pages/LandPage';
 import LoginPage from './components/pages/LoginPage';
-import SignupPage from './components/pages/SignupPage';
+import SignUpPage from './components/pages/SignUpPage';
 import CharityPage from './components/pages/CharityPage';
 import DashboardPage from './components/pages/DashboardPage';
 import KidsPage from './components/pages/KidsPage';
@@ -20,21 +20,38 @@ class App extends Component {
     this.setState({ users: usersJSON });
   };
 
-  createNewUser = async userData => {
-    console.log('in createNewUser...');
-    console.log('user Data ***********', userData);
+  createUser = async payload => {
+    console.log('in createUser...');
+    console.log('createUser payload>>', payload);
     fetch(`${BaseURL}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
-      body: JSON.stringify({
-        name: userData.username,
-        hashpass: userData.hashpass,
-      }),
-    }).then(() => {
+      body: JSON.stringify(payload),
+    }).then(async response => {
       console.log('new user added ...');
+      console.log('responseJson>>>', await response.json());
+      // this.fetchKidsForUser(payload.id);
+    });
+  };
+
+  login = async payload => {
+    console.log('in login...');
+    console.log('user Data >> payload >> ***********', payload);
+    console.log('string payload>>>>', JSON.stringify(payload));
+    fetch(`${BaseURL}/users/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(payload),
+    }).then(async response => {
+      console.log('&&&&&&&&&&&&&&&&&&&&&&&');
+      console.log(await response.headers.get('authentication'));
+      console.log('responsejson>>>', await response.json());
       // this.fetchKidsForUser(userData.id);
     });
   };
@@ -47,13 +64,13 @@ class App extends Component {
           <Route
             path="/login"
             render={routeProps => (
-              <LoginPage {...routeProps} createNewUser={this.createNewUser} />
+              <LoginPage {...routeProps} login={this.login} />
             )}
           />
           <Route
             path="/signup"
             render={routeProps => (
-              <SignupPage {...routeProps} createNewUser={this.createNewUser} />
+              <SignUpPage {...routeProps} createUser={this.createUser} />
             )}
           />
           <Route path="/charities" exact component={CharityPage} />
@@ -67,5 +84,5 @@ class App extends Component {
 
 export default App;
 
-// <Route path="/signup" exact component={SignupPage} />
+// <Route path="/signup" exact component={SignUpPage} />
 // <Route path="/login" exact component={LoginPage} />

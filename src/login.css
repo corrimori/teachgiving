@@ -9,7 +9,8 @@
 
 .login-background {
   background: #76b852;
-}  */
+}
+ */
 
 /* top padding */
 .login-page {
@@ -70,7 +71,7 @@
 .form .register-form {
   position: relative;
   z-index: 1;
-  background: #f2a03d;
+  background: lightblue;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
