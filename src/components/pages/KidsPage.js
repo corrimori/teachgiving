@@ -3,19 +3,41 @@ import { Link } from 'react-router-dom';
 import '../../App.css';
 import PropTypes from 'prop-types';
 import { Item, Card, Container, Image, Menu, Segment } from 'semantic-ui-react';
+// import { baseURL } from '../../App';
+
+let baseURL = 'http://localhost:3032';
 
 // get all kids from user
-
 class KidsPage extends Component {
   state = {
     allKids: [],
+    kidsOfUser: [],
     selectedKidId: '',
   };
 
+  // get user id from Login
+
+  // connect to api - Get all kids for User
   componentDidMount = async () => {
     console.log('in kids page...');
-    // fetch kids from user with id
-    // set state
+    // let id = 2;
+    // const response = await fetch(`${baseURL}/:id/kids`);
+    const response = await fetch(`${baseURL}/users/2/kids`);
+    let kidsJson = await response.json();
+    console.log('kidsJson>>>', kidsJson);
+    this.setState({ allKids: kidsJson });
+    console.log('kids loaded... ');
+    console.log('allKids>>>>>', this.state.allKids);
+    // put kids into an array
+    let kidsOfUser = [];
+    this.state.allKids.map(kid => {
+      console.log('kid>>', kid);
+      console.log('kidName>>', kid.kidName);
+      kidsOfUser.push(kid.kidName);
+    });
+    console.log('kidsOfUser--------->>', kidsOfUser);
+    this.setState({ kidsOfUser });
+    console.log('kidsOfUser>>', this.state.kidsOfUser);
   };
 
   render() {

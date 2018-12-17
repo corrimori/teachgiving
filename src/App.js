@@ -10,12 +10,12 @@ import KidsPage from './components/pages/KidsPage';
 
 import './App.css';
 
-let BaseURL = 'http://localhost:3032';
+let baseURL = 'http://localhost:3032';
 
 class App extends Component {
   // get user list with GET request, set State
   getUsers = async () => {
-    const response = await fetch(`${BaseURL}/users`);
+    const response = await fetch(`${baseURL}/users`);
     const usersJSON = await response.json();
     this.setState({ users: usersJSON });
   };
@@ -23,7 +23,7 @@ class App extends Component {
   createUser = async payload => {
     console.log('in createUser...');
     console.log('createUser payload>>', payload);
-    fetch(`${BaseURL}/users`, {
+    fetch(`${baseURL}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ class App extends Component {
     console.log('in login...');
     console.log('user Data >> payload >> ***********', payload);
     console.log('string payload>>>>', JSON.stringify(payload));
-    fetch(`${BaseURL}/users/login`, {
+    fetch(`${baseURL}/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
