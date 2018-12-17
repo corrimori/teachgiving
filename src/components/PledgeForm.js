@@ -18,9 +18,8 @@ class PledgeForm extends Component {
     console.log('this.state==========>>', this.state);
 
     let pledgeInfo = {
-      kids_id: 1, //this.state.kids_id,
-      // charities_id: 2, //this.state.charityName,
-      charityName: this.state.value,
+      kids_id: 2, //this.state.kids_id,
+      charities_id: 2, //this.state.charityName,
       pledgeAmount: this.state.pledgeAmount,
       numOfWeeks: this.state.numOfWeeks,
     };
@@ -28,15 +27,6 @@ class PledgeForm extends Component {
     console.log('pledgeInfo=================>>', pledgeInfo);
     sendPledgeInfo(pledgeInfo);
   };
-
-  // format of pledge info ===============
-  // {
-  //     "id": 8,
-  //     "kid_id": 3,
-  //     "charity_id": 3,
-  //     "pledgeAmount": 0.5,
-  //     "numOfWeeks": 6
-  // }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 

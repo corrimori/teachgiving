@@ -18,7 +18,7 @@ export const getAllPledges = async () => {
 
 export const sendPledgeInfo = async pledgeInfo => {
   console.log('in sendPledgeInfo');
-  fetch(baseURL + '/pledges', {
+  fetch(`${baseURL}/pledges`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -32,24 +32,3 @@ export const sendPledgeInfo = async pledgeInfo => {
     return response.json();
   });
 };
-
-// export const getUserInfo = () => {
-//   return {
-//     id: 123425245,
-//     name: '',
-//     kids: [
-//       {
-//         id: 1245435454545,
-//         name: '',
-//         runningTotal: '',
-//         avatarImagePath: '',
-//       },
-//       {
-//         id: 2454354545245245,
-//         name: '',
-//         runningTotal: '',
-//         avatarImagePath: '',
-//       },
-//     ],
-//   };
-// };
