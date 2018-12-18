@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../login.css';
+import { Button } from 'semantic-ui-react';
 
 class LoginPage extends Component {
   state = {
@@ -48,6 +49,9 @@ class LoginPage extends Component {
             </p>
           </form>
         </div>
+        <Button color="green" as={Link} to="/kids" size="small">
+          go
+        </Button>
       </div>
     );
   }

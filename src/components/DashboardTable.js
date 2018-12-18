@@ -5,7 +5,7 @@ import TableRows from './TableRows';
 
 const DashboardTable = props => {
   console.log('In dashboard table...  props>>', props);
-  return (
+  return props.pledgesByKids.map(kid => (
     <div className="table-wrap">
       <Table celled striped>
         <Table.Header>
@@ -31,8 +31,9 @@ const DashboardTable = props => {
           <TableRows pledgesByKids={props.pledgesByKids} />
         </Table.Body>
       </Table>
+      <br />
     </div>
-  );
+  ));
 };
 
 export default DashboardTable;
