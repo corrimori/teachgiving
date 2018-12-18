@@ -110,21 +110,3 @@ class KidsPage extends Component {
 export default KidsPage;
 
 // key={{indexOf(kid)}}
-
-// <Link to="/charities">
-//   <Image src="images/avatar/panda.png" size="small" circular />
-//   <h2>Felix</h2>
-// </Link>
-// <Link to="/charities">
-//   <Image src="images/avatar/wolf.png" size="small" circular />
-//   <h2>Lauren</h2>
-// </Link>
-// <Link to="/charities">
-//   <Image
-//     align="center"
-//     src="images/avatar/koala.png"
-//     size="small"
-//     circular
-//   />
-//   <h2>Lucy</h2>
-// </Link>

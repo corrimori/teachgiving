@@ -91,7 +91,11 @@ class App extends Component {
             component={() => <CharityPage kid={this.state.kid} />}
           />
 
-          <Route path="/dashboard" exact component={DashboardPage} />
+          <Route
+            path="/dashboard"
+            exact
+            component={() => <DashboardPage kid={this.state.kid} />}
+          />
 
           <Route
             path="/kids"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import { chart } from 'chart'
-// import { Card, Icon, Image } from 'semantic-ui-react'
+import { Icon, Table } from 'semantic-ui-react';
+
 import {
   Button,
   Container,
@@ -12,12 +12,34 @@ import {
   Segment,
 } from 'semantic-ui-react';
 
+let baseURL = 'http://localhost:3032';
+let user = localStorage.getItem('user');
+
 class DashboardPage extends Component {
   state = {
     selectedKidsId: '',
+    pledgesByKid: [],
+  };
+
+  // :id need to be added in
+  componentDidMount = async () => {
+    const response = await fetch(`${baseURL}/users/2/kids`);
+    let pledgesJson = await response.json();
+    this.setState({ pledgesByKid: pledgesJson });
+    console.log('pledges by Kid loaded...');
+    this.state.pledgesByKid;
   };
 
   render() {
+    const tableWrap = {
+      margin: '5em',
+      align: 'center',
+      maxWidth: '650px',
+    };
+    // console.log('props kid name', this.props.kid.name);
+    console.log('props - Dashboard Page ------>>', this.props);
+    // console.log('props kid ------>>', this.props.kid);
+
     const { fixed } = this.state;
 
     return (
@@ -56,13 +78,55 @@ class DashboardPage extends Component {
         </Segment>
 
         <div>
-          <h2 style={{ marginTop: '40px' }}>Welcome Corrine!</h2>
+          <h2 style={{ marginTop: '40px' }}>{`Welcome ${user}!`}</h2>
         </div>
+
+        <Table celled striped style={tableWrap}>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell colSpan="4">
+                <Icon name="child" />Betty
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell collapsing>
+                <Icon name="money" />
+              </Table.Cell>
+              <Table.Cell>SPCA</Table.Cell>
+              <Table.Cell>.35</Table.Cell>
+              <Table.Cell collapsing textAlign="right">
+                2 weeks
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell collapsing>
+                <Icon name="money" />
+              </Table.Cell>
+              <Table.Cell>Hamilton Families</Table.Cell>
+              <Table.Cell>.10</Table.Cell>
+              <Table.Cell collapsing textAlign="right">
+                3 weeks
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell collapsing>
+                <Icon name="money" />
+              </Table.Cell>
+              <Table.Cell>SF Food Bank</Table.Cell>
+              <Table.Cell>.50</Table.Cell>
+              <Table.Cell collapsing textAlign="right">
+                5 weeks
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
       </div>
     );
   }
-  //component close bracket
-}
+} //component close bracket
 
 export default DashboardPage;
 

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Form, Button, Input, Radio } from 'semantic-ui-react';
 import { sendPledgeInfo } from '../services/api';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class PledgeForm extends Component {
   state = {
     value: '',
-    kids_id: '',
+    kids_id: 0,
+    charity_id: 0,
     charityName: '',
     pledgeAmount: 0,
     numOfWeeks: 0,
@@ -19,13 +20,14 @@ class PledgeForm extends Component {
 
     let pledgeInfo = {
       kid_id: 2, //this.state.kids_id,
-      charity_id: 2, //this.state.charityName,
+      charity_id: 2, //this.state.value, //this.state.charity_id,
       pledgeAmount: this.state.pledgeAmount,
       numOfWeeks: this.state.numOfWeeks,
     };
     // write a fetch request to post pledgeInfo to state
     console.log('pledgeInfo=================>>', pledgeInfo);
     sendPledgeInfo(pledgeInfo);
+    // redirectToDashboard();
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -56,6 +58,7 @@ class PledgeForm extends Component {
                 label="SF Food Bank"
                 name="radioGroup"
                 value="SF Food Bank"
+                // charity_id={this.state.charity_id === 3}
                 checked={this.state.value === 'SF Food Bank'}
                 onChange={this.handleChange}
               />
@@ -65,6 +68,7 @@ class PledgeForm extends Component {
                 label="Golden Gate Park"
                 name="radioGroup"
                 value="Golden Gate Park"
+                charity_id={this.state.charity_id === 1}
                 checked={this.state.value === 'Golden Gate Park'}
                 onChange={this.handleChange}
               />
@@ -74,6 +78,7 @@ class PledgeForm extends Component {
                 label="Hamilton Families"
                 name="radioGroup"
                 value="Hamilton Families"
+                charity_id={this.state.charity_id === 4}
                 checked={this.state.value === 'Hamilton Families'}
                 onChange={this.handleChange}
               />
@@ -102,8 +107,13 @@ class PledgeForm extends Component {
             control={Button}
             content="Give Now"
             color="green"
+            onClick={() => <Link to="/dashboard" />}
           />
         </Form>
+        <br />
+        <Button as={Link} to="/dashboard" size="large">
+          Go to Dashboard
+        </Button>
       </div>
     );
   }

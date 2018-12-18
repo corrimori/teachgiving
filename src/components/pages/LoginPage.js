@@ -22,7 +22,7 @@ class LoginPage extends Component {
     // const post = this.state;
     // console.log('this.props>>>>>>>', this.props);
     this.props.login(post);
-    window.localStorage.setItem('user', JSON.stringify(post.name));
+    localStorage.setItem('user', post.name);
   };
 
   render() {
