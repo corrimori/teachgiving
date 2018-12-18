@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon, Table } from 'semantic-ui-react';
+import DashboardTable from '../DashboardTable';
 
 import {
   Button,
@@ -31,16 +32,18 @@ class DashboardPage extends Component {
   };
 
   render() {
-    const tableWrap = {
-      margin: '5em',
-      align: 'center',
-      maxWidth: '650px',
-    };
     // console.log('props kid name', this.props.kid.name);
     console.log('props - Dashboard Page ------>>', this.props);
     // console.log('props kid ------>>', this.props.kid);
 
     const { fixed } = this.state;
+
+    const wrap = {
+      paddingTop: '1px',
+      margin: '5em',
+      alignContent: 'center',
+      maxWidth: '800px',
+    };
 
     return (
       <div>
@@ -80,63 +83,12 @@ class DashboardPage extends Component {
         <div>
           <h2 style={{ marginTop: '40px' }}>{`Welcome ${user}!`}</h2>
         </div>
-
-        <Table celled striped style={tableWrap}>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell colSpan="4">
-                <Icon name="child" />Betty
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell collapsing>
-                <Icon name="money" />
-              </Table.Cell>
-              <Table.Cell>SPCA</Table.Cell>
-              <Table.Cell>.35</Table.Cell>
-              <Table.Cell collapsing textAlign="right">
-                2 weeks
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell collapsing>
-                <Icon name="money" />
-              </Table.Cell>
-              <Table.Cell>Hamilton Families</Table.Cell>
-              <Table.Cell>.10</Table.Cell>
-              <Table.Cell collapsing textAlign="right">
-                3 weeks
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell collapsing>
-                <Icon name="money" />
-              </Table.Cell>
-              <Table.Cell>SF Food Bank</Table.Cell>
-              <Table.Cell>.50</Table.Cell>
-              <Table.Cell collapsing textAlign="right">
-                5 weeks
-              </Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
+        <div style={wrap}>
+          <DashboardTable pledgesByKid={this.state.pledgesByKid} />
+        </div>
       </div>
     );
   }
 } //component close bracket
 
 export default DashboardPage;
-
-//this is the fetch to collect ALL from PLEDGE route from 1 user
-// getPledgeInfo = async () => {
-//   console.log('pledgeInfo befor fetch ************', pledgeInfo)
-//   const pledgeInfoJSON = await fetch('http://localhost:3003/pledges')
-//   let pledgeInfo = await pledgeInfoJSON.json()
-//   console.log(pledgeInfo,"<<<<pledgeInfo after fetch");
-//   this.setState({
-//     pledgeInfo,
-//   })
-// }
