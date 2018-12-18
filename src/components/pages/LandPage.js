@@ -231,7 +231,7 @@ const LandPage = () => (
           something they care about. With dedication and consistency, a little
           bit can frequently add up to a lot a bit.
         </p>
-        <Button as={Link} to="/kids" size="large">
+        <Button color="green" as={Link} to="/kids" size="large">
           Donate Today
         </Button>
       </Container>

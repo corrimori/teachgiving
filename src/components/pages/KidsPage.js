@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
-import PropTypes from 'prop-types';
-import { Item, Card, Container, Image, Menu, Segment } from 'semantic-ui-react';
+// import PropTypes from 'prop-types';
+import { Container, Menu, Segment } from 'semantic-ui-react';
 import Kid from '../Kid';
 
 // import { baseURL } from '../../App';
@@ -38,16 +38,6 @@ class KidsPage extends Component {
   render() {
     console.log('props', this.props);
     const { fixed } = this.state;
-
-    const wrap = {
-      paddingTop: '1px',
-      margin: '5em',
-      display: 'flex',
-      alignItems: 'flex-start',
-      alignContent: 'center',
-      flexFlow: 'row wrap',
-      justifyContent: 'space-around',
-    };
 
     return (
       <div>
