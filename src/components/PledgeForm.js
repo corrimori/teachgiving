@@ -18,8 +18,8 @@ class PledgeForm extends Component {
     console.log('this.state==========>>', this.state);
 
     let pledgeInfo = {
-      kids_id: 2, //this.state.kids_id,
-      charities_id: 2, //this.state.charityName,
+      kid_id: 2, //this.state.kids_id,
+      charity_id: 2, //this.state.charityName,
       pledgeAmount: this.state.pledgeAmount,
       numOfWeeks: this.state.numOfWeeks,
     };

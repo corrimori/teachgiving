@@ -14,6 +14,10 @@ let baseURL = 'http://localhost:3032';
 
 class App extends Component {
   // get user list with GET request, set State
+  state = {
+    kid: null,
+  };
+
   getUsers = async () => {
     const response = await fetch(`${baseURL}/users`);
     const usersJSON = await response.json();
@@ -56,26 +60,44 @@ class App extends Component {
     });
   };
 
+  setKid = kid => {
+    console.log('kid', kid);
+    this.setState({ kid });
+  };
+
   render() {
     return (
       <div className="App">
         <Switch>
           <Route path="/" exact component={LandPage} />
+
           <Route
             path="/login"
             render={routeProps => (
               <LoginPage {...routeProps} login={this.login} />
             )}
           />
+
           <Route
             path="/signup"
             render={routeProps => (
               <SignUpPage {...routeProps} createUser={this.createUser} />
             )}
           />
-          <Route path="/charities" exact component={CharityPage} />
+
+          <Route
+            path="/charities"
+            exact
+            component={() => <CharityPage kid={this.state.kid} />}
+          />
+
           <Route path="/dashboard" exact component={DashboardPage} />
-          <Route path="/kids" exact component={KidsPage} />
+
+          <Route
+            path="/kids"
+            exact
+            component={() => <KidsPage onSelect={this.setKid} />}
+          />
         </Switch>
       </div>
     );

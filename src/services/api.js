@@ -17,7 +17,7 @@ export const getAllPledges = async () => {
 };
 
 export const sendPledgeInfo = async pledgeInfo => {
-  console.log('in sendPledgeInfo');
+  console.log('in sendPledgeInfo...');
   fetch(`${baseURL}/pledges`, {
     method: 'POST',
     headers: {

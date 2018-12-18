@@ -43,7 +43,7 @@ const LandPageHeading = ({ mobile }) => (
         marginTop: '0.5em',
       }}
     />
-    <Link to="/charities">
+    <Link to="/kids">
       <Button color="orange" size="huge">
         Get Started
         <Icon name="right arrow" />
@@ -79,6 +79,7 @@ class DesktopContainer extends Component {
               minHeight: 600,
               padding: '1em 0em',
               backgroundImage: `url('images/heroHeart3.jpg')`,
+              backgroundSize: 'cover',
             }}
             vertical>
             <Menu
@@ -230,7 +231,7 @@ const LandPage = () => (
           something they care about. With dedication and consistency, a little
           bit can frequently add up to a lot a bit.
         </p>
-        <Button as={Link} to="/charities" size="large">
+        <Button as={Link} to="/kids" size="large">
           Donate Today
         </Button>
       </Container>

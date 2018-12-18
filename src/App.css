@@ -58,6 +58,11 @@
   margin-bottom: 20px;
 }
 
+.name-spacer {
+  margin-top: 0px;
+  margin-bottom: 50px !important;
+}
+
 /* display:inline-block;
 width:100%;
 float:right;

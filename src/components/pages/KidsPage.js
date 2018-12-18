@@ -36,6 +36,7 @@ class KidsPage extends Component {
   };
 
   render() {
+    console.log('props', this.props);
     const { fixed } = this.state;
 
     const wrap = {
@@ -85,13 +86,14 @@ class KidsPage extends Component {
 
         <div className="Kids">
           <h1 style={{ marginTop: '40px' }}>Who is giving today?</h1>
-          <div className="Kids-names large-row-spacer" align="center">
+          <div className="Kids-names" align="center">
             {this.state.allKids.map(kid => (
               <Kid
                 key={kid.id}
                 kid={kid}
                 avatarImage={kid.avatarImage}
                 name={kid.name}
+                onSelect={this.props.onSelect}
               />
             ))}
             <p className="message">

@@ -29,6 +29,7 @@ class CharityPage extends Component {
 
   render() {
     console.log('props - Charity Page ------>>', this.props);
+    console.log('props kid ------>>', this.props.kid);
     const { fixed } = this.state;
 
     const wrap = {
@@ -76,9 +77,15 @@ class CharityPage extends Component {
           </Menu>
         </Segment>
 
-        <Header as="h2">
-          <Image circular src="images/avatar/koala.png" />Lucy
-        </Header>
+        {this.props.kid && (
+          <Header as="h2">
+            <Image
+              circular
+              src={`images/avatar/${this.props.kid.avatarImage}`}
+            />
+            {this.props.kid.name}
+          </Header>
+        )}
         <div>
           <h1 style={{ marginTop: '40px', color: 'black' }}>
             Choose a charity and start giving!

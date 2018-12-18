@@ -6,6 +6,7 @@ const Kid = props => {
   return (
     <div>
       <Link
+        onClick={() => props.onSelect(props.kid)}
         to={{
           pathname: '/charities',
           kid: props.kid,
@@ -15,7 +16,7 @@ const Kid = props => {
           size="small"
           circular
         />
-        <h2>{props.name}</h2>
+        <h2 className="name-spacer">{props.name}</h2>
       </Link>
     </div>
   );
