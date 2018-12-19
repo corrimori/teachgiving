@@ -6,11 +6,10 @@ import SignUpPage from './components/pages/SignUpPage';
 import CharityPage from './components/pages/CharityPage';
 import DashboardPage from './components/pages/DashboardPage';
 import KidsPage from './components/pages/KidsPage';
-// ******* ADD other import pages here **********
-
+import baseURL from './env';
 import './App.css';
 
-let baseURL = 'http://localhost:3032';
+// let baseURL = 'http://localhost:3032';
 
 class App extends Component {
   // get user list with GET request, set State

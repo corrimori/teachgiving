@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import DashboardTable from '../DashboardTable';
-
+import baseURL from '../../env';
 import { Container, Menu, Segment } from 'semantic-ui-react';
 
-let baseURL = 'http://localhost:3032';
+// let baseURL = 'http://localhost:3032';
 let user = localStorage.getItem('user');
 
 class DashboardPage extends Component {

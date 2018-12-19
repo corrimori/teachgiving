@@ -4,10 +4,10 @@ import '../../App.css';
 // import PropTypes from 'prop-types';
 import { Container, Menu, Segment } from 'semantic-ui-react';
 import Kid from '../Kid';
-
+import baseURL from '../../env';
 // import { baseURL } from '../../App';
 
-let baseURL = 'http://localhost:3032';
+// let baseURL = 'http://localhost:3032';
 
 // get all kids from user
 class KidsPage extends Component {

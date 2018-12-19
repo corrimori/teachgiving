@@ -4,9 +4,10 @@ import CharityList from '../CharityList.js';
 import PledgeForm from '../PledgeForm';
 import '../../App.css';
 import { Container, Menu, Segment, Image, Header } from 'semantic-ui-react';
+import baseURL from '../../env';
 // import { getAllCharities } from '../../services/api';
 
-let baseURL = 'http://localhost:3032';
+// let baseURL = 'http://localhost:3032';
 
 class CharityPage extends Component {
   state = {

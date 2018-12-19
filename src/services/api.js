@@ -1,4 +1,6 @@
-let baseURL = 'http://localhost:3032';
+import baseURL from '../env';
+
+// let baseURL = 'http://localhost:3032';
 
 // loading messages from the server
 // export const getAllCharities = async () => {
