@@ -11,7 +11,7 @@ Inspire children with giving goals. (Give early. Give often)
 
 A web app to make giving easy! A user can sign up and add children. Each child can pick an avatar and choose a charity they want to give to. They can choose the amount of money and the number of weeks they want to give.
 
-##### Screenshots
+##### Screenshots:
 
 <div align="center" style="margin-bottom: 25px"><img width='700px' alt="home screenshot" src="screenshots/home.png"/></div>
 
@@ -21,8 +21,8 @@ A web app to make giving easy! A user can sign up and add children. Each child c
 
 ---
 
-##### Tech
+##### Tech:
 
-teachgiving was built using React.
+Teachgiving was built using React.
 This web app is supported with a postSQL database, using KNEX, Node.js and Express Server.
 [link to teachgiving-backend on github](https://github.com/corrimori/teachgiving_backend.git)
