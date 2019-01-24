@@ -1,3 +1,5 @@
+/* tells the create-react-app buildpack to send ALL requests to index.html */
+
 {
   "root": "build/",
   "clean_urls": false,

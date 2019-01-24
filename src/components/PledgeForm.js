@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button, Input, Radio } from 'semantic-ui-react';
 import { sendPledgeInfo } from '../services/api';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class PledgeForm extends Component {
   state = {
@@ -11,6 +11,7 @@ class PledgeForm extends Component {
     charityName: '',
     pledgeAmount: 0,
     numOfWeeks: 0,
+    submitted: false,
   };
 
   // onSubmit of pledge FORM
@@ -27,6 +28,7 @@ class PledgeForm extends Component {
     // write a fetch request to post pledgeInfo to state
     console.log('pledgeInfo=================>>', pledgeInfo);
     sendPledgeInfo(pledgeInfo);
+    this.setState({ submitted: true });
     // redirectToDashboard();
   };
 
@@ -39,7 +41,9 @@ class PledgeForm extends Component {
       margin: '5em',
     };
 
-    return (
+    return this.state.submitted ? (
+      <Redirect to="/dashboard" />
+    ) : (
       <div style={formWrap}>
         <Form onSubmit={this.onSubmitPledge}>
           <Form.Group grouped>

@@ -12,7 +12,7 @@ const DashboardTable = props => {
           <Table.Row>
             <Table.HeaderCell colSpan="4">
               <Icon name="child" />
-              {props.pledgesByKids[0].name}
+              {kid.name}
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -28,7 +28,7 @@ const DashboardTable = props => {
               Number of Weeks
             </Table.Cell>
           </Table.Row>
-          <TableRows pledgesByKids={props.pledgesByKids} />
+          <TableRows kid={kid} />
         </Table.Body>
       </Table>
       <br />

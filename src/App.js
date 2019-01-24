@@ -15,6 +15,20 @@ class App extends Component {
   // get user list with GET request, set State
   state = {
     kid: null,
+    allKids: [],
+  };
+
+  componentDidMount = async () => {
+    // if there is a user, fetch kids
+    try {
+      console.log('in kids page...');
+      const response = await fetch(`${baseURL}/users/2/kids`);
+      const kidsJson = await response.json();
+      console.log('kidsJson>>>', kidsJson);
+      this.setState({ allKids: kidsJson });
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
   getUsers = async () => {
@@ -87,13 +101,20 @@ class App extends Component {
           <Route
             path="/charities"
             exact
-            component={() => <CharityPage kid={this.state.kid} />}
+            component={() => (
+              <CharityPage kid={this.state.kid} allKids={this.state.allKids} />
+            )}
           />
 
           <Route
             path="/dashboard"
             exact
-            component={() => <DashboardPage kid={this.state.kid} />}
+            component={() => (
+              <DashboardPage
+                kid={this.state.kid}
+                allKids={this.state.allKids}
+              />
+            )}
           />
 
           <Route

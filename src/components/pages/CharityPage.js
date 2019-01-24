@@ -31,6 +31,7 @@ class CharityPage extends Component {
   render() {
     console.log('props - Charity Page ------>>', this.props);
     console.log('props kid ------>>', this.props.kid);
+    console.log(this.props.history, 'history');
     const { fixed } = this.state;
 
     const wrap = {
@@ -54,13 +55,15 @@ class CharityPage extends Component {
             padding: '1em 0em',
             backgroundColor: 'green',
           }}
-          vertical>
+          vertical
+        >
           <Menu
             fixed={fixed ? 'top' : null}
             inverted={!fixed}
             pointing={!fixed}
             secondary={!fixed}
-            size="large">
+            size="large"
+          >
             <Container style={{ margin: 0 }}>
               <Menu.Item as={Link} to="/">
                 Home
@@ -100,7 +103,10 @@ class CharityPage extends Component {
           </div>
         </div>
         <div className="PledgeAmount-container">
-          <PledgeForm selectedCharityId={this.state.selectedCharityId} />
+          <PledgeForm
+            history={this.props.history}
+            selectedCharityId={this.state.selectedCharityId}
+          />
         </div>
       </div>
     );

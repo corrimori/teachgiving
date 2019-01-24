@@ -223,7 +223,7 @@ const LandPage = () => (
         <p style={{ fontSize: '1.33em' }}>
           Giving is more satisfying that receiving... Teaching kids how good it
           feels to give at an early age blooms with possiblity of potential
-          exponental growth of good for the future, their future.
+          exponential growth of good for the future, their future.
         </p>
         <p style={{ fontSize: '1.33em' }}>
           One of the biggest barriers to giving is that we typically do not have

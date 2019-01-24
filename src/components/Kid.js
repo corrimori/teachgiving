@@ -3,6 +3,7 @@ import { Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const Kid = props => {
+  console.log('in Kid component &&&&& props>>', props);
   return (
     <div>
       <Link
