@@ -4,8 +4,8 @@ Teaching children to give to charity.
 
 ##### Can I give a tiny bit of money and will that even help?
 
-When you give small amounts, even "nano" amounts, it can add up to something signifigant over time.
-Inspire children with giving goals. (Give early. Give often)
+When you give small amounts, even "nano" amounts, it can add up to something significant over time.
+Inspire children with giving goals. (Give early. Give often.)
 
 ##### The Solution:
 
@@ -24,5 +24,5 @@ A web app to make giving easy! A user can sign up and add children. Each child c
 ##### Tech:
 
 Teachgiving was built using React.
-This web app is supported with a postSQL database, using KNEX, Node.js and Express Server.
+This web app is supported with a postreSQL database, using KNEX, Node.js and Express Server.
 [link to teachgiving-backend on github](https://github.com/corrimori/teachgiving_backend.git)
