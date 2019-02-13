@@ -85,7 +85,7 @@ class CharityPage extends Component {
           <Header as="h2">
             <Image
               circular
-              src={`images/avatar/${this.props.kid.avatarImage}`}
+              src={`public/images/avatar/${this.props.kid.avatarImage}`}
             />
             {this.props.kid.name}
           </Header>

@@ -71,23 +71,26 @@ class DesktopContainer extends Component {
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
-          onBottomPassedReverse={this.hideFixedMenu}>
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
           <Segment
             inverted
             textAlign="center"
             style={{
               minHeight: 600,
               padding: '1em 0em',
-              backgroundImage: `url('images/heroHeart3.jpg')`,
+              backgroundImage: `url('public/images/heroHeart3.jpg')`,
               backgroundSize: 'cover',
             }}
-            vertical>
+            vertical
+          >
             <Menu
               fixed={fixed ? 'top' : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size="large">
+              size="large"
+            >
               <Container>
                 <Menu.Item as="a" active>
                   Home
@@ -104,7 +107,8 @@ class DesktopContainer extends Component {
                     to="/signup"
                     inverted={!fixed}
                     primary={fixed}
-                    style={{ marginLeft: '0.5em' }}>
+                    style={{ marginLeft: '0.5em' }}
+                  >
                     Sign Up
                   </Button>
                 </Menu.Item>
@@ -148,7 +152,8 @@ class MobileContainer extends Component {
             animation="uncover"
             inverted
             vertical
-            visible={sidebarOpened}>
+            visible={sidebarOpened}
+          >
             <Menu.Item as="a" active>
               Home
             </Menu.Item>
@@ -166,12 +171,14 @@ class MobileContainer extends Component {
           <Sidebar.Pusher
             dimmed={sidebarOpened}
             onClick={this.handlePusherClick}
-            style={{ minHeight: '100vh' }}>
+            style={{ minHeight: '100vh' }}
+          >
             <Segment
               inverted
               textAlign="center"
               style={{ minHeight: 350, padding: '1em 0em' }}
-              vertical>
+              vertical
+            >
               <Container>
                 <Menu inverted pointing secondary size="large">
                   <Menu.Item onClick={this.handleToggle}>

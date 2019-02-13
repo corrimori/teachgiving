@@ -11,9 +11,10 @@ const Kid = props => {
         to={{
           pathname: '/charities',
           kid: props.kid,
-        }}>
+        }}
+      >
         <Image
-          src={`images/avatar/${props.avatarImage}`}
+          src={`public/images/avatar/${props.avatarImage}`}
           size="small"
           circular
         />
